@@ -3,14 +3,22 @@ name: Backend Build and Test
 on:
   push:
     paths:
-      - 'Hostel- Mess-Management-system/mess-backend/**'
+      - 'mess-backend/**'
+    branches:
+      - main
   pull_request:
     paths:
-      - 'Hostel-Mess-Management-system/mess-backend/**'
+      - 'mess-backend/**'
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: mess-backend
 
     steps:
       - name: Checkout code
@@ -22,11 +30,7 @@ jobs:
           node-version: '20'
 
       - name: Install backend dependencies
-        run: |
-          cd "Hostel-Mess-Management-system/mess-backend"
-          npm install
+        run: npm install
 
       - name: Run backend tests
-        run: |
-          cd "Hostel-Mess-Management-system/mess-backend"
-          npm test || echo "No tests yet"
+        run: npm test || echo "No tests yet"
