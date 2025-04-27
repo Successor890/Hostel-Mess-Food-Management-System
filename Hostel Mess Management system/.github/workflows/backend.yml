@@ -1,28 +1,32 @@
-name: Backend CI
+name: Backend Build and Test
 
 on:
   push:
     paths:
       - 'mess-backend/**'
-    branches: [ main ]
+  pull_request:
+    paths:
+      - 'mess-backend/**'
 
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'   # or your backend node version
 
       - name: Install dependencies
         run: |
           cd mess-backend
           npm install
 
-      - name: Lint & Test
+      - name: Run backend tests
         run: |
-          echo "No backend tests yet"
+          cd mess-backend
+          npm test   # or your backend test command
