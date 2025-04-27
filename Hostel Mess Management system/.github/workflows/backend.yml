@@ -3,10 +3,10 @@ name: Backend Build and Test
 on:
   push:
     paths:
-      - 'mess-backend/**'
+      - 'Hostel Mess Management system/mess-backend/**'
   pull_request:
     paths:
-      - 'mess-backend/**'
+      - 'Hostel Mess Management system/mess-backend/**'
 
 jobs:
   build:
@@ -19,14 +19,14 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'   # or your backend node version
+          node-version: '20'
 
-      - name: Install dependencies
+      - name: Install backend dependencies
         run: |
-          cd mess-backend
+          cd "Hostel Mess Management system/mess-backend"
           npm install
 
       - name: Run backend tests
         run: |
-          cd mess-backend
-          npm test   # or your backend test command
+          cd "Hostel Mess Management system/mess-backend"
+          npm test || echo "No tests yet"

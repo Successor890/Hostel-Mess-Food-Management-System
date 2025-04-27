@@ -3,10 +3,10 @@ name: Frontend Build
 on:
   push:
     paths:
-      - 'mess-frontend/**'
+      - 'Hostel Mess Management system/mess-frontend/**'
   pull_request:
     paths:
-      - 'mess-frontend/**'
+      - 'Hostel Mess Management system/mess-frontend/**'
 
 jobs:
   build:
@@ -23,10 +23,10 @@ jobs:
 
       - name: Install frontend dependencies
         run: |
-          cd mess-frontend
+          cd "Hostel Mess Management system/mess-frontend"
           npm install
 
       - name: Build frontend
         run: |
-          cd mess-frontend
+          cd "Hostel Mess Management system/mess-frontend"
           npm run build
