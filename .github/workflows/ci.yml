@@ -32,7 +32,7 @@ jobs:
 
       - name: 🧪 Run backend tests
         working-directory: ./mess-backend
-        run: npm test
+        run: npx jest
 
       # -------------------------
       # Test Frontend
