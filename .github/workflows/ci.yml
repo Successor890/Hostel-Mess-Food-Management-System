@@ -28,11 +28,11 @@ jobs:
       # -------------------------
       - name: 📦 Install backend dependencies
         working-directory: ./mess-backend
-        run: npm install
+        run: npm ci
 
       - name: 🧪 Run backend tests
         working-directory: ./mess-backend
-        run: npx jest
+        run: npm test
 
       # -------------------------
       # Test Frontend
